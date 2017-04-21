@@ -1,13 +1,5 @@
-
 <%= simple_form_for [@cocktail, @dose] do |f| %>
-
-<div class="form-inputs">
-  <%= f.input :description %>
-
-  <%= f.association :ingredient %>
-</div>
-
-<div class="form-actions">
-  <%= f.submit "Submit", class: "btn btn-warning" %>
-</div>
+  <%= f.input :description, label: "DESCRIBE UR DRINK", placeholder: "Description" %>
+  <%= f.association :ingredient, label: "PICK SOME LIQUOR", placeholder: "Ingredient" %>
+  <%= f.submit "POUR IT UP", class: "button" %>
 <% end %>

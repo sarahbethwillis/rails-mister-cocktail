@@ -1,26 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1><%= @cocktail.name %></h1>
-
-      <ul>
-        <% @cocktail.doses.each do |dose| %>
-          <li> <%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %> |
-          <em><%= dose.description %></em> |
-          <%= link_to "Delete", dose_path(dose), class: "label label-warning", method: :delete %>
-          </li>
-        <% end %>
-      </ul>
-
-      <%= link_to 'Back', cocktails_path %>
-
-      <%= render 'form' %>
-
-      <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :description, label: "How much liquor?" %>
-        <%= f.association :ingredient %>
-        <%= f.submit "Add Ingredient", class: "btn btn-danger" %>
-      <% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card">
+          <ul class="list-unstyled text-center">
+            <h1><%= @cocktail.name %> </h1>
+              <%= cl_image_tag @cocktail.picture, height: 400, width: 400, crop: :fill %>
+            <h3>DRINK UP</h3>
+            <div class="delete">
+            <% @cocktail.doses.all.each do |dose| %>
+            <li><%= dose.description %> - <%= dose.ingredient.name %> - <%= link_to "Delete", cocktails_path, method: :delete, data: { confirm: "U WANNA DELETE THIS?" }, class: "button" %></li>
+            <% end %>
+          </ul>
+            </div>
+        </div>
+        <div class="card padded text-center">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="card text-center">
+              <p><%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %>
+              </p>
+              <p><%= link_to "Add a new cocktail", new_cocktail_path %>
+              </p>
+              <%= link_to "Delete this cocktail", @cocktails_path, method: :delete, data: { confirm: "BOY BYE?" }, class: "button" %>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>

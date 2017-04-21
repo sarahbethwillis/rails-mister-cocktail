@@ -1,10 +1,8 @@
-<%= simple_form_for [@cocktail] do |f| %>
 
-<div class="form-inputs">
-  <%= f.input :name %>
-</div>
-
-<div class="form-actions">
-  <%= f.submit "Submit", class: "btn btn-warning" %>
-</div>
+<%= simple_form_for @cocktail do |f| %>
+  <%= f.input :name, label: "", placeholder: "NEW DRANK" %>
+  <%= f.input :picture, label: "COOL PIC", class: "upload-input" %>
+  <%= f.input :picture_cache, as: :hidden %>
+  <%= f.submit "ADD A ROOFIE", class: "button" %>
 <% end %>
+

@@ -1,3 +1,125 @@
 @import "alert";
 @import "avatars";
 @import "badges";
+
+.vertical-center {
+  height:100%;
+  width:100%;
+  text-align: center;
+
+}
+
+.vertical-center:before {    /* create a full-height inline block pseudo=element */
+  display: inline-block;
+  vertical-align: middle;    /* vertical alignment of the inline element */
+  height: 100%;
+}
+
+.card h1 {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-style: double;
+  border-color: #909f73;
+}
+
+.card h3 {
+  text-decoration: none;
+  padding: 20px;
+
+}
+
+.card p {
+  margin-bottom: 40px;
+  font-size: 20px;
+
+}
+
+
+.card .button {
+  color: #FFCEE7;
+  border: 1px double #FFCEE7;
+  border-radius: 100px;
+  padding: 15px 15px;
+  font-weight: lighter;
+  font-size: 15px;
+  // opacity: 0.6;
+  transition: all 0.5s;
+  background-color: white;
+}
+
+.card .button:hover {
+  opacity: 1;
+  background: #F2B7DE;
+  text-decoration: none;
+  color: white;
+}
+
+
+#newform {
+  text-align: center;
+  border-style: double;
+  border-color: #F2B7DE;
+  padding-right: 20px;
+  padding-left: 20px;
+
+}
+
+
+.vertical-center li {
+  text-decoration: none;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  font-size: 20px;
+
+
+}
+
+.control-label {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+
+}
+
+#cocktail-picture {
+  padding-top: 40px;
+  padding-bottom: 30px;
+
+}
+
+.delete p {
+  padding: 40px;
+}
+
+.button {
+  color: #FFCEE7;
+  border: 1px double #FFCEE7;
+  border-radius: 100px;
+  padding: 40px 40px;
+  font-weight: lighter;
+  font-size: 30px;
+  // opacity: 0.6;
+  transition: all 0.5s;
+  background-color: white;
+  margin-top: 80px;
+}
+
+.button:hover {
+  opacity: 1;
+  background: #F2B7DE;
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+
+
+
+
