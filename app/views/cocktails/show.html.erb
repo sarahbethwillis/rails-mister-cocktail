@@ -1,18 +1,26 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1><%= @cocktail.name %></h1>
 
-<h2>Recipe</h2>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li> <%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %> |
+          <em><%= dose.description %></em> |
+          <%= link_to "Delete", dose_path(dose), class: "label label-warning", method: :delete %>
+          </li>
+        <% end %>
+      </ul>
 
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-  <li><%= dose.description %> <%= dose.ingredient.name %></li>
-  <p><%= link_to "Delete Dose", cocktail_dose_path(@cocktail, dose),
-    method: :delete,
-    data: { confirm: "U sure?" } %></p>
-  <% end %>
-</ul>
+      <%= link_to 'Back', cocktails_path %>
 
+      <%= render 'form' %>
 
-<p><%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail) %></p>
-<p><%= link_to 'Back', cocktails_path %></p>
-
-
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description, label: "How much liquor?" %>
+        <%= f.association :ingredient %>
+        <%= f.submit "Add Ingredient", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>
