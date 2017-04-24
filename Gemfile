@@ -28,6 +28,7 @@ gem 'autoprefixer-rails'
 gem 'figaro'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'attachinary', github: 'assembler/attachinary'
 
 
 # Use jquery as the JavaScript library
